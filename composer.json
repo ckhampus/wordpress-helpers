@@ -1,0 +1,18 @@
+{
+    "name": "queensbridge/libwp",
+    "description": "Library for creating admin pages",
+    "authors": [
+        {
+            "name": "Cristian Hampus",
+            "email": "cristian@queensbridge.se"
+        }
+    ],
+    "require": {
+        "php": ">=5.3.0"
+    },
+    "autoload": {
+        "psr-0": {
+            "Queensbridge": "src"
+        }
+    }
+}
