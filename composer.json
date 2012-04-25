@@ -1,6 +1,6 @@
 {
-    "name": "queensbridge/libwp",
-    "description": "Library for creating admin pages",
+    "name": "queensbridge/wordpress-helpers",
+    "description": "Helper classes and functions for WordPress",
     "authors": [
         {
             "name": "Cristian Hampus",
