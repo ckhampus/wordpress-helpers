@@ -3,7 +3,7 @@
 namespace Queensbridge\Admin;
 
 /**
- * Class that represents a admin page.
+ * Class that represents an admin page.
  */
 class Page
 {
