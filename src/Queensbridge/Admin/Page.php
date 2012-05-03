@@ -7,22 +7,21 @@ namespace Queensbridge\Admin;
  */
 class Page
 {
-    private $pageTitle;
-
-    private $menuTitle;
+    private $title;
 
     private $content;
+
+    private $slug;
 
     /**
      * Creates a new admin page.
      * 
-     * @param string $pageTitle The page title.
-     * @param string $menuTitle The menu title.
+     * @param string $title The page title.
      */
-    public function __construct($pageTitle, $menuTitle)
+    public function __construct($title, $slug)
     {
-        $this->pageTitle = $pageTitle;
-        $this->menuTitle = $menuTitle;
+        $this->title = $title;
+        $this->slug = $slug;
     }
 
     /**
@@ -32,9 +31,9 @@ class Page
      * 
      * @return Page Returns this page instance.
      */
-    public function setPageTitle($value)
+    public function setTitle($value)
     {
-        $this->pageTitle = $value;
+        $this->title = $value;
 
         return $this;
     }
@@ -44,33 +43,9 @@ class Page
      * 
      * @return string The page title.
      */
-    public function getPageTitle()
+    public function getTitle()
     {
-        return $this->pageTitle;
-    }
-
-    /**
-     * Set the menu title.
-     * 
-     * @param string $value The menu title.
-     * 
-     * @return Page Returns this page instance.
-     */
-    public function setMenuTitle($value)
-    {
-        $this->menuTitle = $value;
-
-        return $this;
-    }
-
-    /**
-     * Get the menu title.
-     * 
-     * @return string The menu title.
-     */
-    public function getMenuTitle()
-    {
-        return $this->menuTitle;
+        return $this->title;
     }
 
     /**

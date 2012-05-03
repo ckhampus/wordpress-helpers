@@ -2,7 +2,7 @@
 
 namespace Queensbridge;
 
-use Queensbridge\Admin\Page;
+use Queensbridge\Admin\MenuPage;
 
 /**
  * Helper class for working with admin related functions,
@@ -15,7 +15,7 @@ class Admin
      * 
      * @param Page $page The page to add.
      */
-    public static function registerPage(Page $page)
+    public static function addMenuPage(MenuPage $menuPage)
     {
 
     }
