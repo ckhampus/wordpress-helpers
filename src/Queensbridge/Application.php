@@ -41,7 +41,7 @@ class Application extends BaseApplication
      * @param array $headers An array of response headers
      *
      * @see Symfony\Component\HttpFoundation\Response
-     * 
+     *
      * @return Symfony\Component\HttpFoundation\Response The response.
      */
     public function json($data = array(), $status = 200, $headers = array())
@@ -61,7 +61,7 @@ class Application extends BaseApplication
      * @param array  $headers  An array of response headers
      *
      * @see Symfony\Component\HttpFoundation\Response
-     * 
+     *
      * @return Symfony\Component\HttpFoundation\Response The response.
      */
     public function xml($data = array(), $status = 200, $rootNode = 'response', $headers = array())

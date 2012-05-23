@@ -15,7 +15,7 @@ class Page
 
     /**
      * Creates a new admin page.
-     * 
+     *
      * @param string $title The page title.
      */
     public function __construct($title, $slug)
@@ -26,9 +26,9 @@ class Page
 
     /**
      * Set the page title.
-     * 
+     *
      * @param string $value The page title.
-     * 
+     *
      * @return Page Returns this page instance.
      */
     public function setTitle($value)
@@ -40,7 +40,7 @@ class Page
 
     /**
      * Get the page title.
-     * 
+     *
      * @return string The page title.
      */
     public function getTitle()
@@ -50,7 +50,7 @@ class Page
 
     /**
      * Set the content.
-     * 
+     *
      * @param string|callback $value The content.
      */
     public function setContent($value)

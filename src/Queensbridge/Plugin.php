@@ -13,7 +13,7 @@ abstract class Plugin extends \Pimple implements EventSubscriberInterface
     const DEACTIVATE  = 'plugin.deactivate';
     const UNINSTALL   = 'plugin.uninstall';
 
-    function __construct($file)
+    public function __construct($file, $version = null)
     {
         $this->data = get_plugin_data($file, false);
 

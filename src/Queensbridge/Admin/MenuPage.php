@@ -16,7 +16,7 @@ class SearchMenuPage extends MenuPage
 
     public function render()
     {
-        
+
     }
 }
 
@@ -44,7 +44,7 @@ class MenuPage
 
     /**
      * Set the title of the page. This text
-     * will be displayed in the title tags 
+     * will be displayed in the title tags
      * of the page when the menu is selected.
      *
      * @param string $value The page title.
@@ -87,7 +87,7 @@ class MenuPage
 
     /**
      * Get the page content.
-     * 
+     *
      * @return callback The page content callback.
      */
     public function getPageContent()
@@ -96,9 +96,9 @@ class MenuPage
     }
 
     /**
-     * Set the menu title. This is the 
+     * Set the menu title. This is the
      * on-screen name text for the menu.
-     * 
+     *
      * @param string $value The menu title.
      */
     public function setMenuTitle($value)
@@ -119,7 +119,7 @@ class MenuPage
     /**
      * Set the menu slug. The slug name to refer to
      * this menu by (should be unique for this menu).
-     * 
+     *
      * @param string $value The menu slug.
      */
     public function setMenuSlug($value)
@@ -160,6 +160,6 @@ class MenuPage
 
     public function render()
     {
-        
+
     }
 }

@@ -3,7 +3,7 @@
 namespace Queensbridge\Admin;
 
 /**
-* 
+*
 */
 class Menu
 {
@@ -38,9 +38,9 @@ class Menu
 
     /**
      * Set the menu title.
-     * 
+     *
      * @param string $value The menu title.
-     * 
+     *
      * @return Page Returns this page instance.
      */
     public function setTitle($value)
@@ -52,7 +52,7 @@ class Menu
 
     /**
      * Get the menu title.
-     * 
+     *
      * @return string The menu title.
      */
     public function getTitle()
