@@ -21,5 +21,11 @@
         "psr-0": {
             "Queensbridge": "src"
         }
-    }
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "http://repo.cristianhampus.se"
+        }
+    ]
 }
