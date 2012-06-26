@@ -2,12 +2,16 @@
 
 namespace Queensbridge\Admin;
 
+use Queensbridge\Inflector;
+
 /**
  * Class that represents an admin page.
  */
 class Page
 {
     protected $title;
+
+    protected $menuTitle;
 
     protected $slug;
 
@@ -21,7 +25,19 @@ class Page
     {
         $this->title = $title;
 
+        $this->menuTitle = null;
+
         $this->slug = $slug === null ? Inflector::underscore($title) : $slug;
+    }
+
+    /**
+     * Get the page title.
+     *
+     * @return string The page title.
+     */
+    public function getTitle()
+    {
+        return $this->title;
     }
 
     /**
@@ -38,14 +54,28 @@ class Page
         return $this;
     }
 
-    /**
-     * Get the page title.
-     *
-     * @return string The page title.
-     */
-    public function getTitle()
+    public function getMenuTitle()
     {
-        return $this->title;
+        if ($this->menuTitle === null) {
+            return $this->title;
+        }
+
+        return $this->menuTitle;
+    }
+
+    public function setMenuTitle($menuTitle)
+    {
+        $this->menuTitle = $menuTitle;
+    }
+
+    public function getSlug()
+    {
+        return $this->slug;
+    }
+
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
     }
 
     public function render()

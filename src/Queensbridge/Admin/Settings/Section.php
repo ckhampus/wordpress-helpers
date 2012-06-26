@@ -17,7 +17,7 @@ class Section
 
     public function __construct($id, $title)
     {
-        $this->title = $id;
+        $this->id = $id;
 
         $this->title = $title;
 
