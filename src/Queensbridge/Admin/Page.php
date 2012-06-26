@@ -7,21 +7,21 @@ namespace Queensbridge\Admin;
  */
 class Page
 {
-    private $title;
+    protected $title;
 
-    private $content;
-
-    private $slug;
+    protected $slug;
 
     /**
      * Creates a new admin page.
      *
      * @param string $title The page title.
+     * @param string $slug  The slug name to refer to this menu by (should be unique for this menu).
      */
-    public function __construct($title, $slug)
+    public function __construct($title, $slug = null)
     {
         $this->title = $title;
-        $this->slug = $slug;
+
+        $this->slug = $slug === null ? Inflector::underscore($title) : $slug;
     }
 
     /**
@@ -48,19 +48,8 @@ class Page
         return $this->title;
     }
 
-    /**
-     * Set the content.
-     *
-     * @param string|callback $value The content.
-     */
-    public function setContent($value)
+    public function render()
     {
-        if (is_callable($value)) {
-            $this->content = $value;
-        } elseif (is_string($value)) {
-            $this->content = function () use ($value) {
-                echo $value;
-            };
-        }
+
     }
 }

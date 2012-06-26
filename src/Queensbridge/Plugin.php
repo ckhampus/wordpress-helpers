@@ -17,7 +17,6 @@ abstract class Plugin extends \Pimple implements EventSubscriberInterface
     {
         $this->data = get_plugin_data($file, false);
 
-
         $app = $this;
 
         $this['dispatcher'] = $this->share(function () use ($app) {

@@ -17,6 +17,9 @@
         "twig/twig": "dev-master",
         "silex/silex": "dev-master"
     },
+    "require-dev": {
+        "fabpot/php-cs-fixer": "dev-master"
+    },
     "autoload": {
         "psr-0": {
             "Queensbridge": "src"
