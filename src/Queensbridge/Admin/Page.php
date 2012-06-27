@@ -54,6 +54,11 @@ class Page
         return $this;
     }
 
+    /**
+     * Get the menu title. Defaults to page title.
+     *
+     * @return string The menu title.
+     */
     public function getMenuTitle()
     {
         if ($this->menuTitle === null) {
@@ -63,16 +68,31 @@ class Page
         return $this->menuTitle;
     }
 
+    /**
+     * Set the menu title.
+     *
+     * @param string $menuTitle The menu title.
+     */
     public function setMenuTitle($menuTitle)
     {
         $this->menuTitle = $menuTitle;
     }
 
+    /**
+     * Get the page slug.
+     *
+     * @return string The page slug.
+     */
     public function getSlug()
     {
         return $this->slug;
     }
 
+    /**
+     * Set the page slug.
+     *
+     * @param string $slug The page slug.
+     */
     public function setSlug($slug)
     {
         $this->slug = $slug;

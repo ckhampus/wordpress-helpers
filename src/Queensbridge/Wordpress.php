@@ -24,8 +24,6 @@ class Wordpress
     public static function addMenuPage(Page $page)
     {
         if ($page instanceof SettingsPage) {
-            var_dump($page);
-
             add_plugins_page($page->getTitle(), $page->getMenuTitle(), 'manage_options', $page->getSlug(), array($page, 'render'));
 
             foreach ($page->getSections() as $key => $section) {
