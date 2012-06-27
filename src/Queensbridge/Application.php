@@ -3,6 +3,7 @@
 namespace Queensbridge;
 
 use Silex\Application as BaseApplication,
+    Silex\Provider\TwigServiceProvider,
     Silex\Provider\MonologServiceProvider,
     Silex\Provider\UrlGeneratorServiceProvider;
 
@@ -23,12 +24,9 @@ class Application extends BaseApplication
 
         $this->name = $name;
 
-        /*
-        $this->register(new MonologServiceProvider(), array(
-            'monolog.name' => $name,
-            'monolog.logfile' => WP_API_PLUGIN_PATH.'/development.log'
+        $this->register(new TwigServiceProvider(), array(
+            'twig.path' => __DIR__.'/../../views',
         ));
-        */
 
         $this->register(new UrlGeneratorServiceProvider());
     }

@@ -16,6 +16,13 @@ class SettingsPage extends Page
         $this->sections = array();
     }
 
+    public function addSections(array $sections)
+    {
+        foreach ($sections as $section) {
+            $this->addSection($section);
+        }
+    }
+
     public function addSection(Section $section)
     {
         if ($section->getPage() !== $this) {

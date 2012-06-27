@@ -2,6 +2,7 @@
 
 namespace Queensbridge;
 
+use Queensbridge\Application;
 use Queensbridge\Admin\Page;
 use Queensbridge\Admin\SettingsPage;
 
@@ -9,16 +10,12 @@ class Wordpress
 {
     private static $instance;
 
-    public function __construct()
-    {
-
-    }
+    public function __construct() { }
 
     public static function singleton()
     {
         if (!isset(self::$instance)) {
-            $className = __CLASS__;
-            self::$instance = new $className;
+            self::$instance = new Application();
         }
 
         return self::$instance;
@@ -29,16 +26,23 @@ class Wordpress
         if ($page instanceof SettingsPage) {
             var_dump($page);
 
-            \add_plugins_page( $page->getTitle(), $page->getMenuTitle(), 'manage_options', $page->getSlug(), array($page, 'render'));
+            add_plugins_page($page->getTitle(), $page->getMenuTitle(), 'manage_options', $page->getSlug(), array($page, 'render'));
 
             foreach ($page->getSections() as $key => $section) {
-                \add_settings_section($section->getID(), $section->getTitle(), array($section, 'render'), $page->getSlug());
+                add_settings_section($section->getID(), $section->getTitle(), array($section, 'render'), $page->getSlug());
 
                 foreach ($section->getFields() as $key => $field) {
-                    \add_settings_field($field->getID(), $field->getTitle(), array($field, 'render'), $page->getSlug(), $section->getID());
+                    add_settings_field($field->getID(), $field->getTitle(), array($field, 'render'), $page->getSlug(), $section->getID());
                 }
             }
         }
+    }
+
+    public function render($name, array $context = array())
+    {
+        $app = self::$instance;
+
+        return $app['twig']->render($name, $context);
     }
 
     public function __clone()
