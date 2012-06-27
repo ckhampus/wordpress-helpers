@@ -95,6 +95,10 @@ class Section
      */
     public function addField(Field $field)
     {
+        if ($field->getSection() !== $this) {
+            $field->setSection($this);
+        }
+
         $this->fields[$field->getId()] = $field;
     }
 

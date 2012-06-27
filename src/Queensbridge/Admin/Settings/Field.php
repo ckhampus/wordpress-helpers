@@ -13,6 +13,8 @@ class Field
 
     protected $page;
 
+    protected $section;
+
     /**
      * Create a settings field.
      *
@@ -73,17 +75,17 @@ class Field
      */
     public function getPage()
     {
-        return $this->page;
+        return $this->section->getPage();
     }
 
     /**
-     * The menu page on which to display this field.
+     * Get the settings section.
      *
-     * @param Page $page The menu page.
+     * @return Section The settings section.
      */
-    public function setPage(Page $page)
+    public function getSection()
     {
-        $this->page = $page;
+        return $this->section;
     }
 
     /**
@@ -93,7 +95,7 @@ class Field
      */
     public function setSection(Section $section)
     {
-        # code...
+        $this->section = $section;
     }
 
     public function render()

@@ -18,6 +18,15 @@ class SettingsPage extends Page
 
     public function addSection(Section $section)
     {
+        if ($section->getPage() !== $this) {
+            $section->setPage($this);
+        }
+
         $this->sections[$section->getId()] = $section;
+    }
+
+    public function getSections()
+    {
+        return $this->sections;
     }
 }
