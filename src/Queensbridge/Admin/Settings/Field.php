@@ -15,17 +15,21 @@ class Field
 
     protected $section;
 
+    protected $type;
+
     /**
      * Create a settings field.
      *
      * @param string $id    String for use in the 'id' attribute of tags.
      * @param string $title Title of the field.
      */
-    public function __construct($id, $title)
+    public function __construct($id, $title, $type = 'text', array $options = array())
     {
         $this->id = $id;
 
         $this->title = $title;
+
+        $this->type = $type;
     }
 
     /**
@@ -68,6 +72,16 @@ class Field
         $this->title = $title;
     }
 
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    public function setType($type)
+    {
+        $this->type = $type;
+    }
+
     /**
      * Get the menu page.
      *
@@ -96,10 +110,5 @@ class Field
     public function setSection(Section $section)
     {
         $this->section = $section;
-    }
-
-    public function render()
-    {
-
     }
 }

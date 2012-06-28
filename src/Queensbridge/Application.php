@@ -4,8 +4,12 @@ namespace Queensbridge;
 
 use Silex\Application as BaseApplication,
     Silex\Provider\TwigServiceProvider,
+    Silex\Provider\FormServiceProvider,
     Silex\Provider\MonologServiceProvider,
-    Silex\Provider\UrlGeneratorServiceProvider;
+    Silex\Provider\TranslationServiceProvider,
+    Silex\Provider\SessionServiceProvider,
+    Silex\Provider\UrlGeneratorServiceProvider,
+    Silex\Provider\ValidatorServiceProvider;
 
 use Symfony\Component\HttpFoundation\Request,
     Symfony\Component\HttpFoundation\Response,
@@ -18,17 +22,32 @@ class Application extends BaseApplication
 {
     private $name;
 
-    public function __contruct($name = '')
+    public function __construct($name = '')
     {
         parent::__construct();
 
+        $app = $this;
+
         $this->name = $name;
+
+        $this->register(new SessionServiceProvider());
+
+        $this->register(new UrlGeneratorServiceProvider());
+
+        $this->register(new ValidatorServiceProvider());
+
+        $this->register(new TranslationServiceProvider());
+
+        $this->register(new FormServiceProvider());
 
         $this->register(new TwigServiceProvider(), array(
             'twig.path' => __DIR__.'/../../views',
         ));
 
-        $this->register(new UrlGeneratorServiceProvider());
+        $this['twig']->addFunction('settings_errors', new \Twig_Function_Function('settings_errors'));
+        $this['twig']->addFunction('settings_fields', new \Twig_Function_Function('settings_fields'));
+        $this['twig']->addFunction('do_settings_sections', new \Twig_Function_Function('do_settings_sections'));
+        $this['twig']->addFunction('submit_button', new \Twig_Function_Function('submit_button'));
     }
 
     /**

@@ -2,6 +2,7 @@
 
 namespace Queensbridge\Admin;
 
+use Queensbridge\Wordpress;
 use Queensbridge\Inflector;
 
 /**
@@ -9,11 +10,35 @@ use Queensbridge\Inflector;
  */
 class Page
 {
+    const DASHBOARD = 'index.php';
+
+    const POSTS     = 'edit.php';
+
+    const MEDIA     = 'upload.php';
+
+    const LINKS     = 'link-manager.php';
+
+    const PAGES     = 'edit.php?post_type=page';
+
+    const COMMENTS  = 'edit-comments.php';
+
+    const APPEARANCE = 'themes.php';
+
+    const PLUGINS   = 'plugins.php';
+
+    const USERS     = 'users.php';
+
+    const TOOLS     = 'tools.php';
+
+    const SETTINGS  = 'options-general.php';
+
     protected $title;
 
     protected $menuTitle;
 
     protected $slug;
+
+    protected $wordpress;
 
     /**
      * Creates a new admin page.
@@ -28,6 +53,16 @@ class Page
         $this->menuTitle = null;
 
         $this->slug = $slug === null ? Inflector::underscore($title) : $slug;
+    }
+
+    public function register(Wordpress $wordpress)
+    {
+        $this->wordpress = $wordpress;
+    }
+
+    public function getWordpress()
+    {
+        return $this->wordpress;
     }
 
     /**
@@ -100,6 +135,6 @@ class Page
 
     public function render()
     {
-
+        echo 'Page';
     }
 }

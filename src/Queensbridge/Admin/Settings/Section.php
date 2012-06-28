@@ -11,6 +11,8 @@ class Section
 
     protected $title;
 
+    protected $description;
+
     protected $fields;
 
     protected $page;
@@ -20,6 +22,8 @@ class Section
         $this->id = $id;
 
         $this->title = $title;
+
+        $this->description = null;
 
         $this->fields = array();
 
@@ -64,6 +68,16 @@ class Section
     public function setTitle($title)
     {
         $this->title = $title;
+    }
+
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    public function setDescription($text)
+    {
+        $this->description = $text;
     }
 
     /**
@@ -124,6 +138,8 @@ class Section
 
     public function render()
     {
-
+        if ($this->getDescription() !== null) {
+            echo apply_filters('the_content', $this->getDescription());
+        }
     }
 }

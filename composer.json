@@ -12,6 +12,8 @@
         "symfony/form": "dev-master",
         "symfony/validator": "dev-master",
         "symfony/translation": "dev-master",
+        "symfony/config": "dev-master",
+        "symfony/locale": "dev-master",
         "symfony/http-foundation": "dev-master",
         "symfony/twig-bridge": "dev-master",
         "twig/twig": "dev-master",
