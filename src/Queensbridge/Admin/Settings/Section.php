@@ -113,7 +113,7 @@ class Section
             $field->setSection($this);
         }
 
-        $this->fields[$field->getId()] = $field;
+        $this->fields[$field->getName()] = $field;
     }
 
     /**

@@ -1,5 +1,5 @@
 {
-    "hash": "be656273ad9b0b25450e6426a8f973d2",
+    "hash": "212cf6c7576db050fb979f0c53da4e67",
     "packages": [
         {
             "package": "pimple/pimple",
@@ -36,18 +36,6 @@
             "version": "dev-master",
             "source-reference": "v2.1.0-BETA1",
             "commit-date": "1338018513"
-        },
-        {
-            "package": "symfony/finder",
-            "version": "dev-master",
-            "alias-pretty-version": "2.1.x-dev",
-            "alias-version": "2.1.9999999.9999999-dev"
-        },
-        {
-            "package": "symfony/finder",
-            "version": "dev-master",
-            "source-reference": "v2.1.0-BETA1",
-            "commit-date": "1340118982"
         },
         {
             "package": "symfony/form",
@@ -116,6 +104,18 @@
             "commit-date": "1340625003"
         },
         {
+            "package": "symfony/serializer",
+            "version": "dev-master",
+            "alias-pretty-version": "2.1.x-dev",
+            "alias-version": "2.1.9999999.9999999-dev"
+        },
+        {
+            "package": "symfony/serializer",
+            "version": "dev-master",
+            "source-reference": "v2.1.0-BETA1",
+            "commit-date": "1339503799"
+        },
+        {
             "package": "symfony/translation",
             "version": "dev-master",
             "source-reference": "v2.1.0-BETA1",
@@ -146,7 +146,50 @@
             "commit-date": "1340890758"
         }
     ],
-    "packages-dev": null,
+    "packages-dev": [
+        {
+            "package": "fabpot/php-cs-fixer",
+            "version": "dev-master",
+            "source-reference": "c894d608b5e55a12658edca6abe00aa299364579",
+            "commit-date": "1340738124"
+        },
+        {
+            "package": "symfony/console",
+            "version": "dev-master",
+            "alias-pretty-version": "2.1.x-dev",
+            "alias-version": "2.1.9999999.9999999-dev"
+        },
+        {
+            "package": "symfony/console",
+            "version": "dev-master",
+            "source-reference": "808bf42b4b74c12e6c6a6a9750688035f1c49f9c",
+            "commit-date": "1340543161"
+        },
+        {
+            "package": "symfony/filesystem",
+            "version": "dev-master",
+            "alias-pretty-version": "2.1.x-dev",
+            "alias-version": "2.1.9999999.9999999-dev"
+        },
+        {
+            "package": "symfony/filesystem",
+            "version": "dev-master",
+            "source-reference": "v2.1.0-BETA1",
+            "commit-date": "1340092395"
+        },
+        {
+            "package": "symfony/finder",
+            "version": "dev-master",
+            "alias-pretty-version": "2.1.x-dev",
+            "alias-version": "2.1.9999999.9999999-dev"
+        },
+        {
+            "package": "symfony/finder",
+            "version": "dev-master",
+            "source-reference": "v2.1.0-BETA1",
+            "commit-date": "1340118982"
+        }
+    ],
     "aliases": [
 
     ],
@@ -155,6 +198,7 @@
         "symfony/form": 20,
         "symfony/validator": 20,
         "symfony/translation": 20,
+        "symfony/serializer": 20,
         "symfony/config": 20,
         "symfony/locale": 20,
         "symfony/http-foundation": 20,

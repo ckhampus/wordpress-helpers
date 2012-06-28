@@ -7,9 +7,9 @@ use Queensbridge\Admin\Settings\Section;
 
 class Field
 {
-    protected $id;
+    protected $name;
 
-    protected $title;
+    protected $label;
 
     protected $page;
 
@@ -20,56 +20,56 @@ class Field
     /**
      * Create a settings field.
      *
-     * @param string $id    String for use in the 'id' attribute of tags.
-     * @param string $title Title of the field.
+     * @param string $name  String for use in the 'name' attribute of tags.
+     * @param string $label Label of the field.
      */
-    public function __construct($id, $title, $type = 'text', array $options = array())
+    public function __construct($name, $label, $type = 'text', array $options = array())
     {
-        $this->id = $id;
+        $this->name = $name;
 
-        $this->title = $title;
+        $this->label = $label;
 
         $this->type = $type;
     }
 
     /**
-     * Get the field id.
+     * Get the field name.
      *
-     * @return string The field id.
+     * @return string The field name.
      */
-    public function getId()
+    public function getName()
     {
-        return $this->id;
+        return $this->name;
     }
 
     /**
-     * Set the field id.
+     * Set the field name.
      *
-     * @param string $id The field id.
+     * @param string $name The field name.
      */
-    public function setId($id)
+    public function setName($name)
     {
-        $this->id = $id;
+        $this->name = $name;
     }
 
     /**
-     * Get the field title.
+     * Get the field label.
      *
-     * @return string The field title.
+     * @return string The field label.
      */
-    public function getTitle()
+    public function getLabel()
     {
-        return $this->title;
+        return $this->label;
     }
 
     /**
-     * Set the field title.
+     * Set the field label.
      *
-     * @param string $title The field title.
+     * @param string $label The field label.
      */
-    public function setTitle($title)
+    public function setLabel($label)
     {
-        $this->title = $title;
+        $this->label = $label;
     }
 
     public function getType()
@@ -80,6 +80,21 @@ class Field
     public function setType($type)
     {
         $this->type = $type;
+    }
+
+    public function getOptions()
+    {
+        return $this->options;
+    }
+
+    public function setOptions(array $options)
+    {
+        $this->options = $options;
+    }
+
+    public function setOption($key, $value)
+    {
+        $this->options[$key] = $value;
     }
 
     /**

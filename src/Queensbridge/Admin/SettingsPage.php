@@ -42,11 +42,19 @@ class SettingsPage extends Page
     {
         $app = $this->getWordpress();
 
-        echo $app->render('settings_page.html.twig', array(
-            'page' => $this
-        ));
+        if ($app) {
+            echo $app->render('settings_page.html.twig', array(
+                'page' => $this
+            ));
+        }
     }
 
+    /**
+     * Create a new settings page by supplying an array.
+     *
+     * @param  array        $options The options.
+     * @return SettingsPage The new settings page.
+     */
     public static function createFromArray(array $options)
     {
         /*

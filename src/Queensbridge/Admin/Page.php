@@ -53,6 +53,8 @@ class Page
         $this->menuTitle = null;
 
         $this->slug = $slug === null ? Inflector::underscore($title) : $slug;
+
+        $this->wordpress = null;
     }
 
     public function register(Wordpress $wordpress)

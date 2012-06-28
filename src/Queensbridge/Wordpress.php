@@ -8,6 +8,11 @@ use Queensbridge\Admin\SettingsPage;
 
 class Wordpress extends Application
 {
+    /**
+     * Add and setup a menu page to the admin menu.
+     *
+     * @param Page $page The menu page.
+     */
     protected function registerPage(Page $page)
     {
         $app = $this;
@@ -16,7 +21,7 @@ class Wordpress extends Application
             $page->register($app);
 
             if ($page instanceof SettingsPage) {
-                if (false === get_option($page->getSlug())) {
+                if (get_option($page->getSlug()) === false) {
                     add_option($page->getSlug());
                 }
 
@@ -29,9 +34,7 @@ class Wordpress extends Application
                 // Build form
                 foreach ($page->getSections() as $key => $section) {
                     foreach ($section->getFields() as $key => $field) {
-                        $builder->add($field->getId(), $field->getType(), array(
-                            'error_bubbling' => false
-                        ));
+                        $builder->add($field->getName(), $field->getType());
                     }
                 }
 
@@ -45,7 +48,6 @@ class Wordpress extends Application
                         $formError = unserialize($error[0]['message']);
                         $value->addError($formError);
                     }
-
                 }
 
                 // Build settings screen
@@ -55,36 +57,33 @@ class Wordpress extends Application
                     }, $page->getSlug());
 
                     foreach ($section->getFields() as $key => $field) {
-                        add_settings_field($field->getId(), $field->getTitle(), function () use ($field, $app, $form) {
+                        add_settings_field($field->getName(), $field->getLabel(), function () use ($field, $app, $form) {
                             echo $app->render('field.html.twig', array(
                                 'form' => $form->createView(),
-                                'field' => $field->getId()
+                                'field' => $field->getName()
                             ));
                         }, $page->getSlug(), $section->getId());
                     }
                 }
 
-                register_setting(
-                    $page->getSlug(),
-                    $page->getSlug(),
-                    function ($input) use ($form, $app, $page) {
-                        $form->bind($input);
+                register_setting($page->getSlug(), $page->getSlug(), function ($input) use ($form, $app, $page) {
+                    $form->bind($input);
 
-                        $output = array();
+                    $output = array();
 
-                        foreach ($form->getChildren() as $key => $value) {
-                            if ($value->isValid()) {
-                                $output[$key] = $value->getData();
-                            } else {
-                                foreach ($value->getErrors() as $error) {
-                                    add_settings_error($key, $key, serialize($error), $type = 'error');
-                                }
+                    foreach ($form->getChildren() as $key => $value) {
+                        if ($value->isValid()) {
+                            $output[$key] = $value->getData();
+                        } else {
+                            foreach ($value->getErrors() as $error) {
+                                // Serialize form error and save for next page load.
+                                add_settings_error($key, $key, serialize($error), $type = 'error');
                             }
                         }
-
-                        return $output;
                     }
-                );
+
+                    return $output;
+                });
             }
         });
     }

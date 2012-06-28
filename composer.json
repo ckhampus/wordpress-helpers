@@ -12,6 +12,7 @@
         "symfony/form": "dev-master",
         "symfony/validator": "dev-master",
         "symfony/translation": "dev-master",
+        "symfony/serializer": "dev-master",
         "symfony/config": "dev-master",
         "symfony/locale": "dev-master",
         "symfony/http-foundation": "dev-master",
