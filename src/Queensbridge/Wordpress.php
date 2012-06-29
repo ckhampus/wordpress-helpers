@@ -68,7 +68,7 @@ class Wordpress extends Application
 
                 register_setting($page->getSlug(), $page->getSlug(), function ($input) use ($form, $app, $page) {
                     $form->bind($input);
-
+                    
                     $output = array();
 
                     foreach ($form->getChildren() as $key => $value) {
@@ -96,7 +96,7 @@ class Wordpress extends Application
      */
     public function addMenuPage(Page $page, $position = null)
     {
-        add_action('admin_menu', function () use ($page, $position, $result) {
+        add_action('admin_menu', function () use ($page, $position) {
             add_menu_page($page->getTitle(), $page->getMenuTitle(), 'manage_options', $page->getSlug(), array($page, 'render'), null, $position);
         });
 
