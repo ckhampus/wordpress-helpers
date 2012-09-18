@@ -9,20 +9,22 @@
     ],
     "require": {
         "php": ">=5.3.0",
-        "symfony/form": "dev-master",
-        "symfony/validator": "dev-master",
-        "symfony/translation": "dev-master",
-        "symfony/serializer": "dev-master",
-        "symfony/config": "dev-master",
-        "symfony/locale": "dev-master",
-        "symfony/http-foundation": "dev-master",
-        "symfony/twig-bridge": "dev-master",
+        "symfony/form": "v2.1.1",
+        "symfony/validator": "v2.1.1",
+        "symfony/translation": "v2.1.1",
+        "symfony/serializer": "v2.1.1",
+        "symfony/config": "v2.1.1",
+        "symfony/locale": "v2.1.1",
+        "symfony/http-foundation": "v2.1.1",
+        "symfony/twig-bridge": "v2.1.1",
         "twig/twig": "dev-master",
         "silex/silex": "dev-master"
     },
     "require-dev": {
-        "fabpot/php-cs-fixer": "dev-master"
+        "fabpot/php-cs-fixer": "dev-master",
+        "ckhampus/wordpress-tests": "dev-master"
     },
+    "minimum-stability": "dev",
     "autoload": {
         "psr-0": {
             "Queensbridge": "src/"
@@ -32,6 +34,19 @@
         {
             "type": "composer",
             "url": "http://repo.cristianhampus.se"
+        },
+        {
+            "type": "package",
+            "package": {
+                "name": "ckhampus/wordpress-tests",
+                "type": "library",
+                "version": "dev-master",
+                "source": {
+                    "url": "https://github.com/ckhampus/wordpress-tests.git",
+                    "type": "git",
+                    "reference": "master"
+                }
+            }
         }
     ]
 }

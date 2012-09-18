@@ -2,10 +2,10 @@
 
 namespace Queensbridge\Tests;
 
-use Queensbridge\WebTestCase;
 use Queensbridge\Wordpress;
+use Queensbridge\IntegrationTestCase;
 
-class WordpressTest extends WebTestCase
+class WordpressTest extends IntegrationTestCase
 {
     public function testAddingMenuPage()
     {
@@ -22,7 +22,6 @@ class WordpressTest extends WebTestCase
         $wp->addMenuPage($page);
          */
 
-        $this->goToUrl('http://example.org/wp-admin/index.php');
 
         $page = $this->getMockBuilder('Queensbridge\\Admin\\SettingsPage')
                      ->disableOriginalConstructor()
@@ -32,7 +31,13 @@ class WordpressTest extends WebTestCase
              ->method('getSlug')
              ->will($this->returnValue('foo_settings'));
 
+        $page->expects($this->atLeastOnce())
+             ->method('getSections')
+             ->will($this->returnValue(array()));
+
         $wp = new Wordpress();
         $wp->addMenuPage($page);
+
+        $this->go_to(admin_url());
     }
 }
