@@ -22,7 +22,8 @@
     },
     "require-dev": {
         "fabpot/php-cs-fixer": "dev-master",
-        "ckhampus/wordpress-tests": "dev-master"
+        "queensbridge/wordpress-tests": "dev-develop",
+        "wordpress/wordpress": "3.4.2"
     },
     "minimum-stability": "dev",
     "autoload": {
@@ -33,20 +34,14 @@
     "repositories": [
         {
             "type": "composer",
-            "url": "http://repo.cristianhampus.se"
-        },
-        {
-            "type": "package",
-            "package": {
-                "name": "ckhampus/wordpress-tests",
-                "type": "library",
-                "version": "dev-master",
-                "source": {
-                    "url": "https://github.com/ckhampus/wordpress-tests.git",
-                    "type": "git",
-                    "reference": "master"
-                }
-            }
+            "url": "http://packages.cristianhampus.se"
         }
-    ]
+    ],
+    "extra": {
+        "wordpress-dir": "tests/wordpress",
+        "content-dir": "tests/wordpress/wp-content"
+    },
+    "config": {
+        "bin-dir": "bin"
+    }
 }
